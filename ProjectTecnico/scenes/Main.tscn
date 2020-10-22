@@ -6,3 +6,15 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 499, 281 )
+
+[node name="AnimationTreePlayer" type="AnimationTreePlayer" parent="."]
+data = {
+"active": false,
+"connections": [  ],
+"master": NodePath(""),
+"nodes": [ {
+"id": "out",
+"position": Vector2( 40, 40 ),
+"type": "output"
+} ]
+}
