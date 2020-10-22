@@ -16,12 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="ProjectTecnico"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/TelaInicial.tscn"
 config/icon="res://icon.png"
-
-[display]
-
-window/size/fullscreen=true
 
 [input]
 
