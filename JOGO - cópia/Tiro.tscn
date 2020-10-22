@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://bala.png" type="Texture" id=1]
+[ext_resource path="res://Tiro.gd" type="Script" id=2]
+
+[node name="Tiro" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 515, 100 )
+scale = Vector2( 0.158332, 0.109091 )
+texture = ExtResource( 1 )
+offset = Vector2( -822.859, -182.853 )

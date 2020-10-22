@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=1]
+[ext_resource path="res://Personagem.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=9]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 0, -24 )
+b = Vector2( 0, 32 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Personagem" type="KinematicBody2D" parent="."]
+position = Vector2( 120, 136 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Personagem"]
+position = Vector2( 400, 100 )
+shape = SubResource( 1 )
+
+[node name="Movimentacao" type="AnimatedSprite" parent="Personagem"]
+position = Vector2( 400, 100 )
+scale = Vector2( 0.957031, 0.875001 )
+frames = SubResource( 2 )
+playing = true
+offset = Vector2( -5, -5 )
