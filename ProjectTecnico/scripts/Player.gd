@@ -20,10 +20,17 @@ func _move(delta):
 	
 	if Input.is_action_pressed("left"):
 		walk.x = -SPEED
+		$AnimatedSprite.play("Run")
+		$AnimatedSprite.flip_h = true
+
 	elif Input.is_action_pressed("right"):
 		walk.x = SPEED
+		$AnimatedSprite.play("Run")
+		$AnimatedSprite.flip_h = false
+
 	else:
 		walk.x = 0
+		$AnimatedSprite.play("Idle")
 	
 	move_and_slide(walk)
 
