@@ -2,11 +2,12 @@ extends KinematicBody2D
 
 const SPEED = 300
 var walk = Vector2()
+var intervalo = .1
+var disparo = 0
 
 func _physics_process(delta):
 	
 	_move(delta)
-	
 	pass
 
 func _move(delta):

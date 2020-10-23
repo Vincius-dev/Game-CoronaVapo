@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-var intervalo = .3
-var disparo = 0
-var direcao_char = true
+	var intervalo = .3
+	var disparo = 0
+	var direcao_char = true
 var pretiro = preload("res://Tiro.tscn")
 const SPEED = 300
 var walk = Vector2()

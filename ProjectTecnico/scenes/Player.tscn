@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/Personagem_teste/Run/Run3.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/Personagem_teste/Idle/Idle0.png" type="Texture" id=6]
 [ext_resource path="res://sprites/Personagem_teste/Run/Run0.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Personagem_teste/Run/Run2.png" type="Texture" id=8]
+[ext_resource path="res://scripts/BulletStart.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,11 +30,14 @@ extents = Vector2( 24.2645, 29.5136 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.25, 0 )
 frames = SubResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.00226 )
+position = Vector2( 0, 2.75226 )
 shape = SubResource( 2 )
 
-[node name="Bullet" type="Node2D" parent="."]
+[node name="BulletStart" type="Node2D" parent="."]
+position = Vector2( 28.1928, 4.22815 )
+script = ExtResource( 9 )

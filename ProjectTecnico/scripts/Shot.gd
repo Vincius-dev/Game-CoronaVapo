@@ -1,16 +1,26 @@
 extends Node2D
 
-var giro = Vector2()
-var vel = 500
-var dir = 0
+var direcao = 0
+var velocidade = 10
+var time = 0
 
 func _ready():
 	
- set_process(true)
-pass
+	pass
 
-func _process(delta):
+func _physics_process(delta):
+	move_local_x(direcao * velocidade)
 	
-	set_position (get_position()+ Vector2(0,0) * vel * delta )
+	if direcao == 1:
+		$SpriteRight.show()
+		$SpriteLeft.hide()
 	
+	if direcao == -1:
+		$SpriteRight.hide()
+		$SpriteLeft.show()
 	
+	time += delta
+	
+	if time > 4:
+		queue_free()
+	pass
