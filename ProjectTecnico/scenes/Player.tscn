@@ -9,29 +9,29 @@
 [ext_resource path="res://sprites/Personagem_teste/Run/Run0.png" type="Texture" id=7]
 [ext_resource path="res://sprites/Personagem_teste/Run/Run2.png" type="Texture" id=8]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24.2645, 29.5136 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2.00226 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
