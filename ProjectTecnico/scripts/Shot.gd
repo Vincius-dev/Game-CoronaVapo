@@ -24,3 +24,6 @@ func _physics_process(delta):
 	if time > 4:
 		queue_free()
 	pass
+func _on_Area2D_body_entered(body):
+	print(body)
+	body.dano()
