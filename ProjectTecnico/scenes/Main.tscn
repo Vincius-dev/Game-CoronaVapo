@@ -9,4 +9,4 @@
 position = Vector2( 253, 271 )
 
 [node name="Zumbi" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 54 )
+position = Vector2( 504.6, 265.027 )

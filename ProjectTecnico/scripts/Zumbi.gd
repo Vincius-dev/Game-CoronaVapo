@@ -3,6 +3,7 @@ var flip = true
 var inicial
 var final
 var velocidade = 3
+var vida = 4
 
 func _ready():
 	$Sprite.play("Walk")
@@ -22,6 +23,8 @@ func _process(delta):
 		$Sprite.flip_h = true
 		if($".".position.x <= inicial):
 			flip = true
+
 func dano():
-	print("Morreu")
-	$".".queue_free()
+	vida -= 1
+	if vida == 0:
+		queue_free()

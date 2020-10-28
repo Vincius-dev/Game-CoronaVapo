@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name bulletStart
+
 var tiro0 = preload("res://scenes/Shot.tscn")
 var TravaTiro = false
 var direcao = 1
@@ -33,10 +35,15 @@ func _physics_process(delta):
 		tiro1.position = global_position
 		get_node("../../").add_child(tiro1)
 		TravaTiro = true
-		
+
 	if tiro and TravaTiro == false and direcao == -1:
 		var tiro1 = tiro0.instance()
 		tiro1.direcao = -1 
 		tiro1.position = global_position
 		get_node("../../").add_child(tiro1)
 		TravaTiro = true
+
+	if tiro:
+		get_tree().call_group("player","SwitchWeapon")
+		get_tree().call_group("Bullet","SwitchBullet")
+

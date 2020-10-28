@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bala.png-4e89d0ddae317fb90d7f619eb2cf2059.stex"
+path="res://.import/Glock_Animation3.png-58cd8f693163cad2ad38ac0cd41daa9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Shot/bala.png"
-dest_files=[ "res://.import/bala.png-4e89d0ddae317fb90d7f619eb2cf2059.stex" ]
+source_file="res://sprites/Personagem/Glock_Char/Glock_Animation3.png"
+dest_files=[ "res://.import/Glock_Animation3.png-58cd8f693163cad2ad38ac0cd41daa9c.stex" ]
 
 [params]
 

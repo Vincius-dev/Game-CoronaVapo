@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sprites/Personagem/Char_Idle/Main_Idle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -6,7 +6,15 @@
 [ext_resource path="res://sprites/Personagem/Char_Run/Char_Run1.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Personagem/Char_Run/Char_Run3.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Personagem/Char_Run/Char_Run4.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Personagem/Glock_Char/Glock_Animation1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Personagem/AK_Char/AK_AnimationChar2.png" type="Texture" id=8]
 [ext_resource path="res://scripts/BulletStart.gd" type="Script" id=9]
+[ext_resource path="res://sprites/Personagem/Glock_Char/Glock_Animation3.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Personagem/AK_Char/AK_AnimationChar1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Personagem/Glock_Char/Glock_Animation2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun3.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun1.png" type="Texture" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,22 +27,40 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Shotgun_Shot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "AK_Shot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Glock_Shot",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 26, 45.7754 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.582148, 0.543118 )
 frames = SubResource( 1 )
 animation = "Idle"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="BulletStart" type="Node2D" parent="."]
-position = Vector2( 39.6928, -0.77185 )
+position = Vector2( 46.4275, -0.77185 )
 script = ExtResource( 9 )
