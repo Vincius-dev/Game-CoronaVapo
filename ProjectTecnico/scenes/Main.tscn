@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Zumbi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Vida.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node"]
 
@@ -9,4 +10,7 @@
 position = Vector2( 253, 271 )
 
 [node name="Zumbi" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 54 )
+position = Vector2( 17.7818, 21.9277 )
+
+[node name="Life" parent="." instance=ExtResource( 3 )]
+position = Vector2( -49.8904, -67.7083 )

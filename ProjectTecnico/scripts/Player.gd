@@ -4,12 +4,11 @@ const SPEED = 300
 var walk = Vector2()
 var intervalo = .1
 var disparo = 0
+var vida = 4
 
 func _physics_process(delta):
 	
 	_move(delta)
-	pass
-
 func _move(delta):
 	
 	if Input.is_action_pressed("up"):
@@ -34,4 +33,14 @@ func _move(delta):
 		$AnimatedSprite.play("Idle")
 	
 	move_and_slide(walk)
-
+	
+func _process(delta):
+	preload("res://scripts/Vida.gd")
+	preload("res://scenes/Vida.tscn")
+	
+	
+func morte():
+	vida -= 1
+	if vida == 0:
+		queue_free()
+		

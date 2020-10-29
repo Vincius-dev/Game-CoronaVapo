@@ -3,7 +3,7 @@ extends Node2D
 var direcao = 0
 var velocidade = 10
 var time = 0
-
+var vida = 4 
 func _ready():
 	
 	pass
@@ -27,3 +27,4 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	print(body)
 	body.dano()
+	queue_free()

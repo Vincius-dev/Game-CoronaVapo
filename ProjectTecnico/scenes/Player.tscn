@@ -24,9 +24,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24.2645, 29.5136 )
+extents = Vector2( 17.3678, 29.7938 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2147483657
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -35,7 +36,7 @@ frames = SubResource( 1 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2.75226 )
+position = Vector2( 1.84868, 3.02251 )
 shape = SubResource( 2 )
 
 [node name="BulletStart" type="Node2D" parent="."]
