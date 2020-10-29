@@ -3,7 +3,8 @@ var flip = true
 var inicial
 var final
 var velocidade = 3
-var vida = 4
+var vida = 6
+
 
 func _ready():
 	$Sprite.play("Walk")
@@ -24,7 +25,23 @@ func _process(delta):
 		if($".".position.x <= inicial):
 			flip = true
 
-func dano():
+func DamageGlock():
 	vida -= 1
+	print("vida -1")
 	if vida == 0:
 		queue_free()
+	pass
+
+func DamageAK():
+	vida -= 2
+	print("vida -2")
+	if vida == 0:
+		queue_free()
+	pass
+
+func DamageShotgun():
+	vida -= 3
+	print("vida -3")
+	if vida == 0:
+		queue_free()
+	pass

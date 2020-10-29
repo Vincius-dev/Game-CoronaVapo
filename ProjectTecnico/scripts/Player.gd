@@ -3,7 +3,6 @@ class_name Player
 
 const SPEED = 300
 var walk = Vector2()
-var intervalo = .1
 var disparo = 0
 var weapon = 3
 
