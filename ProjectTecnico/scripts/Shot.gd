@@ -10,7 +10,6 @@ var bulletShotgun = preload("res://sprites/Armas/Shotgun/shot_shotgun.png")
 var bulletGlock = preload("res://sprites/Armas/GLOCK/shot_glock.png") 
 
 func _ready():
-	
 	pass
 
 func _physics_process(delta):
@@ -86,8 +85,3 @@ func bulletVelocity():
 	elif bullet == 4:
 		velocidade = 25
 	pass
-
-
-func ColisaoBodyAK(body):
-	
-	pass 
