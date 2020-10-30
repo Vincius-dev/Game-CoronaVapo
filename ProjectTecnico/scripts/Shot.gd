@@ -33,7 +33,7 @@ func _on_Area2D_body_entered(body):
 		queue_free()
 	pass
 
-func SwitchBullet():
+func BulletList():
 	if bullet == 1:
 		$SpriteRight.set_texture(bulletGlock)
 		$SpriteLeft.set_texture(bulletGlock)
@@ -61,27 +61,35 @@ func tiroMove():
 func limitBullet(delta):
 	time += delta
 
-	if time > 0.7 and bullet == 4:
-		queue_free()
-
+	if time > 5 and bullet == 1:
+		 queue_free()
+	if time > 1 and bullet == 2:
+		 queue_free()
 	if time > 0.1 and bullet == 3:
 		queue_free()
-	
-	elif time > 1 and bullet == 2:
-		 queue_free()
-	
-	elif time > 1.5 and bullet == 1:
-		 queue_free()
+	if time > 0.7 and bullet == 4:
+		queue_free()
 	pass
 
 func bulletVelocity():
-	
 	if bullet == 1:
 		velocidade = 10
-	elif bullet == 2:
+	if bullet == 2:
 		velocidade = 20
-	elif bullet == 3:
+	if bullet == 3:
 		velocidade = 40
-	elif bullet == 4:
+	if bullet == 4:
 		velocidade = 25
+	pass
+
+func BulletSwitch1():
+	bullet = 1
+	pass
+
+func BulletSwitch2():
+	bullet = 2
+	pass
+
+func BulletSwitch3():
+	bullet = 3
 	pass
