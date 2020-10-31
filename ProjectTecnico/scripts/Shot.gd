@@ -3,7 +3,8 @@ extends Node2D
 var direcao = 0
 var velocidade = 10
 var time = 0
-var bullet = 3
+var bullet = 2
+var cooldown = 1
 
 var bulletAK = preload("res://sprites/Armas/AK/Shot.png")
 var bulletShotgun = preload("res://sprites/Armas/Shotgun/shot_shotgun.png")
@@ -80,16 +81,4 @@ func bulletVelocity():
 		velocidade = 40
 	if bullet == 4:
 		velocidade = 25
-	pass
-
-func BulletSwitch1():
-	bullet = 1
-	pass
-
-func BulletSwitch2():
-	bullet = 2
-	pass
-
-func BulletSwitch3():
-	bullet = 3
 	pass

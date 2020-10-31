@@ -46,11 +46,8 @@ func GunsList():
 func GunsSwitch():
 	if Input.is_action_just_pressed("Slot1"):
 		weapon = 1
-		get_tree().call_group("Bullet","BulletSwitch1")
 	if Input.is_action_just_pressed("Slot2"):
 		weapon = 2
-		get_tree().call_group("Bullet","BulletSwitch2")
 	if Input.is_action_just_pressed("Slot3"):
 		weapon = 3
-		get_tree().call_group("Bullet","BulletSwitch3")
 	pass

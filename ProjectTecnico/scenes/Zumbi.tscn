@@ -35,4 +35,5 @@ animation = "Walk"
 frame = 2
 
 [node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2( -0.594604, 0.594597 )
 shape = SubResource( 2 )
