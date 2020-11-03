@@ -23,6 +23,11 @@ func _physics_process(delta):
 
 func _move(delta):
 	print(walkON)
+	if Input.is_action_pressed("shot"):
+		walkON = false
+	else:
+		walkON = true
+	
 	if Input.is_action_pressed("up") and walkON == true:
 		walk.y = -SPEED
 	elif Input.is_action_pressed("down") and walkON == true:
@@ -75,10 +80,7 @@ func GunsSwitch():
 
 func shooting():
 	if ShootingON == true:
-		if Input.is_action_just_pressed("shot"):
-			walkON = false
-		else:
-			walkON = true
+
 		
 		if Input.is_action_just_pressed("shot") and bullet == 1:
 			var ShotG1 = ShotG0.instance()
@@ -135,6 +137,6 @@ func ShotCadence():
 		if time >= 20:
 			ShootingON = true
 	if ShootingON == false and bullet == 3:
-		if time >= 100:
+		if time >= 70:
 			ShootingON = true
 	pass
