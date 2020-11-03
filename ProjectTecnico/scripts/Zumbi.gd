@@ -28,20 +28,20 @@ func _process(delta):
 func DamageGlock():
 	vida -= 1
 	print("vida -1")
-	if vida == 0:
+	if vida <= 0:
 		queue_free()
 	pass
 
 func DamageAK():
 	vida -= 2
 	print("vida -2")
-	if vida == 0:
+	if vida <= 0:
 		queue_free()
 	pass
 
 func DamageShotgun():
 	vida -= 3
 	print("vida -3")
-	if vida == 0:
+	if vida <= 0:
 		queue_free()
 	pass

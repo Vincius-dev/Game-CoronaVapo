@@ -6,8 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.30178, 4.96844 )
 
-[node name="ShotAk" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="ShotAk" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -22,4 +21,5 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -0.374577, 0.0532463 )
 scale = Vector2( 0.952753, 0.44091 )
+[connection signal="body_entered" from="." to="." method="_on_ShotAk_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="sreen_exited"]

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 const Velocidade = 20
 const Dano = 2
@@ -24,4 +24,11 @@ func move():
 
 func sreen_exited():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_ShotAk_body_entered(body):
+	if body.is_in_group("inimigos"):
+		body.DamageAK()
+		queue_free()
 	pass # Replace with function body.

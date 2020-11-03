@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.2198, 4.81165 )
 
-[node name="ShotGlock" type="RigidBody2D"]
+[node name="ShotGlock" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -20,4 +20,5 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 1.19225, -1.67044 )
 scale = Vector2( 1.26272, 0.475586 )
+[connection signal="body_entered" from="." to="." method="_on_ShotGlock_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="sreen_exited"]

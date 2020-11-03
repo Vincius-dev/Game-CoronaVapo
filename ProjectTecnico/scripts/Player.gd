@@ -4,13 +4,17 @@ const SPEED = 300
 var walk = Vector2()
 var bullet = 1
 var shootingV = false
+var ShootingON = true
+var walkON = true
+var time = 0
 
-var ShotG0 = preload("res://scenes/Bullets/ShotGlock.tscn")
+var ShotG0 = preload("res://scenes/Bullets/ShotGlock.tscn") 
 var ShotA0 = preload("res://scenes/Bullets/ShotAk.tscn")
 var ShotS0 = preload("res://scenes/Bullets/ShotShotgun.tscn")
 
-
 func _physics_process(delta):
+	time += 1 
+	ShotCadence()
 	GunsSwitch()
 	shooting()
 	animation_walk()
@@ -18,18 +22,18 @@ func _physics_process(delta):
 	pass
 
 func _move(delta):
-	if Input.is_action_pressed("up"):
+	print(walkON)
+	if Input.is_action_pressed("up") and walkON == true:
 		walk.y = -SPEED
-	elif Input.is_action_pressed("down"):
+	elif Input.is_action_pressed("down") and walkON == true:
 		walk.y = SPEED
 	else:
 		walk.y = 0 
-	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") and walkON == true:
 		walk.x = -SPEED
 		$AnimatedSprite.flip_h = true
 		shootingV = false
-	elif Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right") and walkON == true:
 		walk.x = SPEED
 		$AnimatedSprite.flip_h = false
 		shootingV = false
@@ -70,19 +74,67 @@ func GunsSwitch():
 	pass
 
 func shooting():
-	if Input.is_action_just_pressed("shot") and bullet == 1:
-		var ShotG1 = ShotG0.instance()
-		ShotG1.set_global_position(get_global_position())
-		get_node("../").add_child(ShotG1)
-		shootingV = true
-	if Input.is_action_just_pressed("shot") and bullet == 2:
-		var ShotA1 = ShotA0.instance()
-		ShotA1.set_global_position(get_global_position())
-		get_node("../").add_child(ShotA1)
-		shootingV = true
-	if Input.is_action_just_pressed("shot") and bullet == 3:
-		var ShotS1 = ShotS0.instance()
-		ShotS1.set_global_position(get_global_position())
-		get_node("../").add_child(ShotS1)
-		shootingV = true
+	if ShootingON == true:
+		if Input.is_action_just_pressed("shot"):
+			walkON = false
+		else:
+			walkON = true
+		
+		if Input.is_action_just_pressed("shot") and bullet == 1:
+			var ShotG1 = ShotG0.instance()
+			ShotG1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
+			
+			if $AnimatedSprite.flip_h == true:
+				ShotG1.direcao = 2
+				get_tree().call_group("position","changePositionLeft")
+			if $AnimatedSprite.flip_h == false:
+				ShotG1.direcao = 1
+				get_tree().call_group("position","changePositionRight")
+			
+			get_node("../").add_child(ShotG1)
+			shootingV = true
+			ShootingON = false
+			time = 0
+
+		if Input.is_action_just_pressed("shot") and bullet == 2:
+			var ShotA1 = ShotA0.instance()
+			ShotA1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
+			
+			if $AnimatedSprite.flip_h == true:
+				ShotA1.direcao = 2
+				get_tree().call_group("position","changePositionLeft")
+			if $AnimatedSprite.flip_h == false:
+				ShotA1.direcao = 1
+				get_tree().call_group("position","changePositionRight")
+			
+			get_node("../").add_child(ShotA1)
+			shootingV = true
+			ShootingON = false
+			time = 0
+
+		if Input.is_action_just_pressed("shot") and bullet == 3:
+			var ShotS1 = ShotS0.instance()
+			ShotS1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
+			if $AnimatedSprite.flip_h == true:
+				ShotS1.direcao = 2
+				get_tree().call_group("position","changePositionLeft")
+			if $AnimatedSprite.flip_h == false:
+				ShotS1.direcao = 1
+				get_tree().call_group("position","changePositionRight")
+			get_node("../").add_child(ShotS1)
+			shootingV = true
+			ShootingON = false
+			time = 0
+	pass
+
+func ShotCadence():
+	if ShootingON == false and bullet == 1:
+		if time >= 40:
+			ShootingON = true
+	if ShootingON == false and bullet == 2:
+		if time >= 20:
+			ShootingON = true
+	if ShootingON == false and bullet == 3:
+		if time >= 100:
+			ShootingON = true
 	pass

@@ -1,6 +1,6 @@
-extends RigidBody2D
+extends Area2D
 
-const Velocidade = 10
+const Velocidade = 15
 const Dano = 1
 const Cadencia = 1
 var direcao = 1
@@ -24,4 +24,11 @@ func move():
 
 func sreen_exited():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_ShotGlock_body_entered(body):
+	if body.is_in_group("inimigos"):
+		body.DamageGlock()
+		queue_free()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 const Velocidade = 25
 const Dano = 3
@@ -21,7 +21,16 @@ func move():
 		$Sprite.flip_h = true
 	pass
 
-
 func sreen_exited():
 	queue_free()
 	pass # Replace with function body.
+
+func _on_ShotShotgun_body_entered(body):
+	if body.is_in_group("inimigos"):
+		body.DamageShotgun()
+		queue_free()
+	pass # Replace with function body.
+
+func _on_Timer_timeout():
+	queue_free()
+	pass 

@@ -23,9 +23,9 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
-"name": "Glock_Shot",
+"name": "Idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 8 ) ],
@@ -33,9 +33,9 @@ animations = [ {
 "name": "AK_Shot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "Idle",
+"name": "Glock_Shot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ],
@@ -57,9 +57,12 @@ scale = Vector2( 0.582148, 0.543118 )
 frames = SubResource( 1 )
 animation = "Idle"
 
+[node name="BulletStart" type="Node2D" parent="AnimatedSprite" groups=[
+"position",
+]]
+position = Vector2( 79.752, -1.42115 )
+scale = Vector2( 1.71778, 1.84122 )
+script = ExtResource( 9 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-
-[node name="BulletStart" type="Node2D" parent="."]
-position = Vector2( 46.4275, -0.77185 )
-script = ExtResource( 9 )

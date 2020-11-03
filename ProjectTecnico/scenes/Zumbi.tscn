@@ -24,7 +24,9 @@ animations = [ {
 radius = 29.386
 height = 26.06
 
-[node name="Zumbi" type="StaticBody2D"]
+[node name="Zumbi" type="StaticBody2D" groups=[
+"inimigos",
+]]
 collision_layer = 4
 script = ExtResource( 11 )
 
