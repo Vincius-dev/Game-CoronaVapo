@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const Velocidade = 10
+const Velocidade = 20
 const Dano = 2
 const cadencia = 0.1
 var direcao = 1

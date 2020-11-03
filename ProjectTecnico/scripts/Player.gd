@@ -72,17 +72,17 @@ func GunsSwitch():
 func shooting():
 	if Input.is_action_just_pressed("shot") and bullet == 1:
 		var ShotG1 = ShotG0.instance()
-		add_child(ShotG1)
-		ShotG1.position = $BulletStart.position
+		ShotG1.set_global_position(get_global_position())
+		get_node("../").add_child(ShotG1)
 		shootingV = true
 	if Input.is_action_just_pressed("shot") and bullet == 2:
 		var ShotA1 = ShotA0.instance()
-		add_child(ShotA1)
-		ShotA1.position = $BulletStart.position
+		ShotA1.set_global_position(get_global_position())
+		get_node("../").add_child(ShotA1)
 		shootingV = true
 	if Input.is_action_just_pressed("shot") and bullet == 3:
 		var ShotS1 = ShotS0.instance()
-		add_child(ShotS1)
-		ShotS1.position = $BulletStart.position
+		ShotS1.set_global_position(get_global_position())
+		get_node("../").add_child(ShotS1)
 		shootingV = true
 	pass

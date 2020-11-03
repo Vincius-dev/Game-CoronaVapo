@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const Velocidade = 5
+const Velocidade = 10
 const Dano = 1
 const Cadencia = 1
 var direcao = 1
@@ -13,7 +13,6 @@ func _process(delta):
 	pass
 
 func move():
-	var movimento = Vector2(0,0)
 	if direcao == 1:
 		position += Vector2(1,0) * Velocidade
 		$Sprite.flip_h = false
