@@ -1,17 +1,17 @@
-extends StaticBody2D
+extends KinematicBody2D
 var vida = 6
-const speed = 200
+const speed = 100
+
+var velocity = Vector2()
 
 func _ready():
 	
 	pass
 
-func _process(delta):
-	
-	pass
-
 func _physics_process(delta):
-	var toplayer = ($"res://scenes/Player.tscn".position - position.normalized())
+	var toPlayer = ($"../Player".position - position).normalized()
+	velocity = toPlayer * speed
+	move_and_collide(velocity*delta)
 	
 	pass
  

@@ -12,11 +12,11 @@
 [ext_resource path="res://sprites/Zumbi/walk (5).png" type="Texture" id=10]
 [ext_resource path="res://scripts/Zumbi.gd" type="Script" id=11]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Walk",
+"name": "default",
 "speed": 10.0
 } ]
 
@@ -28,7 +28,7 @@ height = 26.06
 radius = 27.3159
 height = 30.2155
 
-[node name="Zumbi" type="StaticBody2D" groups=[
+[node name="Zumbi" type="KinematicBody2D" groups=[
 "inimigos",
 ]]
 collision_layer = 4
@@ -36,9 +36,9 @@ script = ExtResource( 11 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.209302, 0.195761 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "Walk"
-frame = 2
+playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.594604, 0.594597 )

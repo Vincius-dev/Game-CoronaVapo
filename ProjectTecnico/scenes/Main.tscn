@@ -45,5 +45,5 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="Path2D2"]
 position = Vector2( 1024.43, 81.889 )
-rotation = 1.57382
+rotation = 1.57385
 [connection signal="timeout" from="ZumbiTimer" to="." method="zumbispawn"]
