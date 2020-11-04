@@ -1,10 +1,6 @@
 extends StaticBody2D
-var flip = true
-var inicial
-var final
-var velocidade = 3
 var vida = 6
-
+const speed = 200
 
 func _ready():
 	
@@ -14,6 +10,11 @@ func _process(delta):
 	
 	pass
 
+func _physics_process(delta):
+	var toplayer = ($"res://scenes/Player.tscn".position - position.normalized())
+	
+	pass
+ 
 func DamageGlock():
 	vida -= 1
 	print("vida -1")
