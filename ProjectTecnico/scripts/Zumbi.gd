@@ -1,20 +1,26 @@
 extends KinematicBody2D
 var vida = 6
-const speed = 100
 
 var velocity = Vector2()
 
-func _ready():
-	
-	pass
+const speed = 100
 
 func _physics_process(delta):
 	var toPlayer = ($"../Player".position - position).normalized()
 	velocity = toPlayer * speed
 	move_and_collide(velocity*delta)
-	
+	zumbi_direction()
 	pass
- 
+
+func zumbi_direction():
+	var playerDirection 
+	playerDirection = ($"../Player/AnimatedSprite".flip_h)
+	if playerDirection == true:
+		$Sprite.flip_h = true
+	if playerDirection == false:
+		$Sprite.flip_h = false
+	pass
+
 func DamageGlock():
 	vida -= 1
 	print("vida -1")

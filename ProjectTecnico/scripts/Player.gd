@@ -23,7 +23,6 @@ func _physics_process(delta):
 	pass
 
 func _move(delta):
-	print(walkON)
 	if Input.is_action_pressed("shot"):
 		walkON = false
 	else:
@@ -81,7 +80,6 @@ func GunsSwitch():
 
 func shooting():
 	if ShootingON == true:
-
 		
 		if Input.is_action_just_pressed("shot") and bullet == 1:
 			var ShotG1 = ShotG0.instance()
@@ -144,5 +142,6 @@ func ShotCadence():
 
 func dano():
 	vida -= 1
+	print(vida)
 	if vida == 0:
 		queue_free()
