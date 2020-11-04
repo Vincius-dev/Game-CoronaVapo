@@ -45,3 +45,8 @@ func DamageShotgun():
 	if vida <= 0:
 		queue_free()
 	pass
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		body.dano()
+	pass #

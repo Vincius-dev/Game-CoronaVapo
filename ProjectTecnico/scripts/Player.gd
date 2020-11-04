@@ -7,6 +7,7 @@ var shootingV = false
 var ShootingON = true
 var walkON = true
 var time = 0
+var vida = 4
 
 var ShotG0 = preload("res://scenes/Bullets/ShotGlock.tscn") 
 var ShotA0 = preload("res://scenes/Bullets/ShotAk.tscn")
@@ -140,3 +141,8 @@ func ShotCadence():
 		if time >= 70:
 			ShootingON = true
 	pass
+
+func dano():
+	vida -= 1
+	if vida == 0:
+		queue_free()
