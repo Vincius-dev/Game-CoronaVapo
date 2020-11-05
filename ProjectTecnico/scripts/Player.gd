@@ -13,12 +13,14 @@ var ShotG0 = preload("res://scenes/Bullets/ShotGlock.tscn")
 var ShotA0 = preload("res://scenes/Bullets/ShotAk.tscn")
 var ShotS0 = preload("res://scenes/Bullets/ShotShotgun.tscn")
 
+signal PlayerDead
 func _physics_process(delta):
 	time += 1 
 	ShotCadence()
 	GunsSwitch()
 	shooting()
 	animation_walk()
+	visilibility()
 	_move(delta)
 	pass
 
@@ -142,6 +144,11 @@ func ShotCadence():
 
 func dano():
 	vida -= 1
-	print(vida)
 	if vida == 0:
-		queue_free()
+		emit_signal("PlayerDead")
+		visible = false
+
+func visilibility():
+	if vida > 0:
+		visible = true
+	pass

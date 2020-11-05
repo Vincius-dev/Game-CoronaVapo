@@ -3,7 +3,9 @@ var vida = 6
 
 var velocity = Vector2()
 
-const speed = 100
+var speed = 40
+
+signal zumbiDeath
 
 func _physics_process(delta):
 	var toPlayer = ($"../Player".position - position).normalized()
@@ -23,22 +25,22 @@ func zumbi_direction():
 
 func DamageGlock():
 	vida -= 1
-	print("vida -1")
 	if vida <= 0:
+		emit_signal("zumbiDeath")
 		queue_free()
 	pass
 
 func DamageAK():
 	vida -= 2
-	print("vida -2")
 	if vida <= 0:
+		emit_signal("zumbiDeath")
 		queue_free()
 	pass
 
 func DamageShotgun():
 	vida -= 3
-	print("vida -3")
 	if vida <= 0:
+		emit_signal("zumbiDeath")
 		queue_free()
 	pass
 
