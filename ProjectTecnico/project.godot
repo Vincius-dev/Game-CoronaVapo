@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ProjectTecnico"
-run/main_scene="res://scenes/Wave.tscn"
+run/main_scene="res://scenes/TelaInicial.tscn"
 config/icon="res://icon.png"
 
 [input]
