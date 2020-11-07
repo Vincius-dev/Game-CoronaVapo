@@ -8,6 +8,7 @@ var attempts = 3
 var speedZumbi = 50
 
 signal pause
+signal resetLifes
 
 func _physics_process(delta):
 	show_remaining()
@@ -76,6 +77,7 @@ func restart_wave():
 	zombiesAlive = totalZombie
 	$Player.vida = 4
 	$Player.position = Vector2(487.419,295.59)
+	emit_signal("resetLifes")
 	attempts -= 1
 	spawnedZombies = 0
 	pass

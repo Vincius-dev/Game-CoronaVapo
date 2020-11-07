@@ -47,7 +47,7 @@ func show_game_over():
 	pass
 
 func show_mensage1():
-	$Label.text = "Porem ainda consegue continuar "
+	$Label.text = "Porém ainda consegue continuar "
 	pass
 	
 func show_mensage2():

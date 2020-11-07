@@ -14,6 +14,8 @@ var ShotA0 = preload("res://scenes/Bullets/ShotAk.tscn")
 var ShotS0 = preload("res://scenes/Bullets/ShotShotgun.tscn")
 
 signal PlayerDead
+signal tomaDano
+
 func _physics_process(delta):
 	time += 1 
 	ShotCadence()
@@ -144,6 +146,7 @@ func ShotCadence():
 
 func dano():
 	vida -= 1
+	emit_signal("tomaDano")
 	if vida == 0:
 		emit_signal("PlayerDead")
 		visible = false
