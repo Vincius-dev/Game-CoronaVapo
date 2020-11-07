@@ -155,3 +155,9 @@ func visilibility():
 	if vida > 0:
 		visible = true
 	pass
+func _input(event):
+	if event.is_action_pressed("pickup"):
+		if $PickupZone.items_in_range.size() > 0:
+			var pickup_item = $PickupZone.items_in_range.values()[0]
+			pickup_item.pick_up_item(self)
+			$PickupZone.items_in_range.erase(pickup_item)

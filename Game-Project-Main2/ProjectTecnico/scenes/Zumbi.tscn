@@ -1,0 +1,50 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://sprites/Zumbi/walk (2).png" type="Texture" id=1]
+[ext_resource path="res://sprites/Zumbi/walk (3).png" type="Texture" id=2]
+[ext_resource path="res://sprites/Zumbi/walk (6).png" type="Texture" id=3]
+[ext_resource path="res://sprites/Zumbi/walk (8).png" type="Texture" id=4]
+[ext_resource path="res://sprites/Zumbi/walk (1).png" type="Texture" id=5]
+[ext_resource path="res://sprites/Zumbi/walk (4).png" type="Texture" id=6]
+[ext_resource path="res://sprites/Zumbi/walk (7).png" type="Texture" id=7]
+[ext_resource path="res://sprites/Zumbi/walk (9).png" type="Texture" id=8]
+[ext_resource path="res://sprites/Zumbi/walk (10).png" type="Texture" id=9]
+[ext_resource path="res://sprites/Zumbi/walk (5).png" type="Texture" id=10]
+[ext_resource path="res://scripts/Zumbi.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.3454, 45.2376 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35.2252, 48.1302 )
+
+[node name="Zumbi" type="KinematicBody2D" groups=[
+"inimigos",
+]]
+collision_layer = 4
+script = ExtResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.209302, 0.195761 )
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2( -3.18297, 5.2767 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -3.8355, 4.16022 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
