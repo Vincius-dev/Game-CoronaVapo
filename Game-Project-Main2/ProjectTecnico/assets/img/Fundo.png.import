@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/item_slot_empty_background.png-4876e84459d0a6b0d2d766c313d12136.stex"
+path="res://.import/Fundo.png-8785a357d1b71719b0147027418ea1c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/inventario/item_slot_empty_background.png"
-dest_files=[ "res://.import/item_slot_empty_background.png-4876e84459d0a6b0d2d766c313d12136.stex" ]
+source_file="res://assets/img/Fundo.png"
+dest_files=[ "res://.import/Fundo.png-8785a357d1b71719b0147027418ea1c4.stex" ]
 
 [params]
 
