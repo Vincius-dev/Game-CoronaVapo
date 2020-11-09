@@ -9,6 +9,7 @@ var speedZumbi = 50
 
 signal pause
 signal resetLifes
+signal passarWave
 
 func _physics_process(delta):
 	show_remaining()
@@ -67,6 +68,7 @@ func zumbi_death():
 	pass
 
 func player_death():
+	$scientist_Dialogue.visible = false
 	emit_signal("pause")
 	get_tree().call_group("inimigos","queue_free")
 	if $PauseScreen.visible == false:
@@ -77,6 +79,7 @@ func restart_wave():
 	zombiesAlive = totalZombie
 	$Player.vida = 4
 	$Player.position = Vector2(487.419,295.59)
+	$scientist_Dialogue.visible = true
 	emit_signal("resetLifes")
 	attempts -= 1
 	spawnedZombies = 0
@@ -92,6 +95,7 @@ func win_game():
 		$Player.move_and_slide($Position2D.position - $Player.position)
 	if $Player.position == $Position2D.position - $Player.position:
 		waveNumber += 1
+		emit_signal("passarWave")
 		#change_scene("nome da cena")
 	pass
 
