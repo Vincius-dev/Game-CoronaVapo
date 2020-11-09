@@ -9,36 +9,36 @@
 [ext_resource path="res://scenes/Life.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/img/Fundo.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 514.652, 15.2683 )
 
-[sub_resource type="SegmentShape2D" id=8]
+[sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -15.7095, -65.3748 )
 b = Vector2( -13.5579, 533.376 )
 
-[sub_resource type="SegmentShape2D" id=7]
+[sub_resource type="SegmentShape2D" id=3]
 a = Vector2( 781.267, 243.834 )
 b = Vector2( -257.087, 243.009 )
 
-[sub_resource type="SegmentShape2D" id=9]
+[sub_resource type="SegmentShape2D" id=4]
 a = Vector2( -0.136322, 552.361 )
 b = Vector2( -1.67471, -70.4236 )
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 3.12787, 261.435, 0, 0, 0, 0, 1.15942, 317.314, 0, 0, 0, 0, 1.15942, 552.255 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=6]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1022.81, 266.435, 0, 0, 0, 0, 1022.81, 552.255 )
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=8]
 font_data = ExtResource( 6 )
 
 [node name="Wave" type="Node"]
@@ -61,7 +61,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 509.529, 198.876 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -70,15 +70,15 @@ collision_mask = 4
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 light_mask = 4
 position = Vector2( 1039.32, 72.7693 )
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 248.111, 360.9 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 3.03488, 64.9083 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="Life" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 3.05176e-05 )
@@ -95,19 +95,19 @@ scale = Vector2( 0.7, 0.7 )
 wait_time = 6.0
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 1 )
+curve = SubResource( 5 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 3.12787, 261.435 )
 rotation = 1.60601
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2( -37.5806, 7.72552 )
-curve = SubResource( 2 )
+position = Vector2( -16.0642, 7.72552 )
+curve = SubResource( 6 )
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="Path2D2"]
 position = Vector2( 1022.81, 266.435 )
-rotation = 1.57075
+rotation = 1.57078
 
 [node name="PauseScreen" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -126,7 +126,7 @@ margin_left = 808.965
 margin_top = 12.6723
 margin_right = 981.965
 margin_bottom = 65.6723
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Zombies Remaining:"
@@ -141,7 +141,7 @@ margin_left = 666.319
 margin_top = 17.0818
 margin_right = 793.319
 margin_bottom = 61.0818
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Wave:"

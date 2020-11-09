@@ -20,11 +20,11 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 23.4019
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 23.3768, 36.3755 )
+extents = Vector2( 19.3994, 26.7151 )
 
 [node name="Zumbi" type="KinematicBody2D" groups=[
 "inimigos",
@@ -32,15 +32,14 @@ extents = Vector2( 23.3768, 36.3755 )
 script = ExtResource( 11 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.13651, 2.27299 )
-scale = Vector2( 0.209302, 0.195761 )
+position = Vector2( -7.38726, 11.365 )
+scale = Vector2( 0.180229, 0.160724 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2( -10.0019, 13.2322 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
