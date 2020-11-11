@@ -47,7 +47,7 @@ func zumbispawn():
 	pass
 
 func wave_attributes():
-	totalZombie = totalZombie + waveNumber/2
+	totalZombie = totalZombie + waveNumber/2 + 1
 	speedZumbi = speedZumbi + waveNumber*2
 	zombiesAlive = totalZombie
 	attempts = 3

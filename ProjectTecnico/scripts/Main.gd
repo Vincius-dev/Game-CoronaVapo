@@ -12,7 +12,6 @@ func _ready():
 	pass
 
 func passar_wave():
-	numberWave = +1
 	var base1 = base0.instance()
 	add_child(base1)
 	base1.connect("sairBase",self,"sair_base")
@@ -21,9 +20,7 @@ func passar_wave():
 func sair_base():
 	numberWave += 1
 	var wave2 = wave0.instance()
-	add_child(wave2)
 	wave2.waveNumber = numberWave
+	add_child(wave2)
 	wave2.connect("passarWave", self, "passar_wave")
 	pass
-
-
