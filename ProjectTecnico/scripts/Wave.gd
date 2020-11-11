@@ -1,7 +1,7 @@
 extends Node
 export (PackedScene) var Zumbi
 var waveNumber = 1
-var totalZombie = 4
+var totalZombie = 6
 var spawnedZombies = 0
 var zombiesAlive = totalZombie
 var attempts = 3
@@ -9,6 +9,7 @@ var speedZumbi = 50
 
 signal pause
 signal resetLifes
+signal passarWave
 
 func _physics_process(delta):
 	show_remaining()
@@ -19,7 +20,7 @@ func _ready():
 	randomize()
 	wave_start()
 	pass
-	
+
 func wave_start():
 	$ZumbiTimer.start()
 	$Player.position = Vector2(487.419,295.59)
@@ -46,20 +47,20 @@ func zumbispawn():
 	pass
 
 func wave_attributes():
-	totalZombie = totalZombie + 2
-	speedZumbi = speedZumbi + 10
+	totalZombie = totalZombie + waveNumber/2 + 1
+	speedZumbi = speedZumbi + waveNumber*2
 	zombiesAlive = totalZombie
 	attempts = 3
 	spawnedZombies = 0
 	
 	if waveNumber <= 5:
-		$ZumbiTimer.wait_time = 6
+		$ZumbiTimer.wait_time = 13
 	if waveNumber >= 5 and waveNumber <= 10:
-		$ZumbiTimer.wait_time = 5
+		$ZumbiTimer.wait_time = 11
 	if waveNumber >= 10 and waveNumber <= 15:
-		$ZumbiTimer.wait_time = 4
+		$ZumbiTimer.wait_time = 10
 	if waveNumber >= 15 and waveNumber <= 20:
-		$ZumbiTimer.wait_time = 3
+		$ZumbiTimer.wait_time = 8
 	pass
 
 func zumbi_death():
@@ -67,6 +68,7 @@ func zumbi_death():
 	pass
 
 func player_death():
+	$scientist_Dialogue.visible = false
 	emit_signal("pause")
 	get_tree().call_group("inimigos","queue_free")
 	if $PauseScreen.visible == false:
@@ -77,6 +79,7 @@ func restart_wave():
 	zombiesAlive = totalZombie
 	$Player.vida = 4
 	$Player.position = Vector2(487.419,295.59)
+	$scientist_Dialogue.visible = true
 	emit_signal("resetLifes")
 	attempts -= 1
 	spawnedZombies = 0
@@ -90,9 +93,10 @@ func game_over():
 func win_game():
 	if zombiesAlive == 0:
 		$Player.move_and_slide($Position2D.position - $Player.position)
-	if $Player.position == $Position2D.position - $Player.position:
-		waveNumber += 1
-		#change_scene("nome da cena")
+		if $Player.position >= Vector2(590.906, 260.415):
+			waveNumber += 1
+			emit_signal("passarWave")
+			queue_free()
 	pass
 
 func show_remaining():

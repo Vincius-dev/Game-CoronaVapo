@@ -1,5 +1,7 @@
 extends KinematicBody2D
-var vida = 6
+var vida = 3
+var toPlayer
+var inicialpos
 
 var velocity = Vector2()
 
@@ -8,37 +10,37 @@ var speed = 40
 signal zumbiDeath
 
 func _physics_process(delta):
-	var toPlayer = ($"../Player".position - position).normalized()
+	toPlayer = ($"../Player".position - position).normalized()
 	velocity = toPlayer * speed
+	inicialpos = position.x
 	move_and_collide(velocity*delta)
-	zumbi_direction()
+	zumbi_direction(delta)
 	pass
 
-func zumbi_direction():
-	var playerDirection 
-	playerDirection = ($"../Player/AnimatedSprite".flip_h)
-	if playerDirection == true:
+func zumbi_direction(delta):
+	if velocity.x < position.x * delta:
 		$Sprite.flip_h = true
-	if playerDirection == false:
+	if velocity.x > position.x * delta:
 		$Sprite.flip_h = false
 	pass
 
 func DamageGlock():
-	vida -= 1
+	vida -= 0.5
+	print(vida)
 	if vida <= 0:
 		emit_signal("zumbiDeath")
 		queue_free()
 	pass
 
 func DamageAK():
-	vida -= 2
+	vida -= 1
 	if vida <= 0:
 		emit_signal("zumbiDeath")
 		queue_free()
 	pass
 
 func DamageShotgun():
-	vida -= 3
+	vida -= 2
 	if vida <= 0:
 		emit_signal("zumbiDeath")
 		queue_free()
