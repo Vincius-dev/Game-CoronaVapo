@@ -92,6 +92,7 @@ animation = "Shooting"
 position = Vector2( 729.97, 401.536 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 flip_h = true
 
@@ -99,6 +100,7 @@ flip_h = true
 position = Vector2( 931.268, 483.115 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 flip_h = true
 
@@ -106,6 +108,7 @@ flip_h = true
 position = Vector2( 573.169, 515.958 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 flip_h = true
 

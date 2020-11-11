@@ -1,7 +1,7 @@
 extends Node
 export (PackedScene) var Zumbi
 var waveNumber = 1
-var totalZombie = 4
+var totalZombie = 6
 var spawnedZombies = 0
 var zombiesAlive = totalZombie
 var attempts = 3
@@ -20,7 +20,7 @@ func _ready():
 	randomize()
 	wave_start()
 	pass
-	
+
 func wave_start():
 	$ZumbiTimer.start()
 	$Player.position = Vector2(487.419,295.59)
@@ -47,20 +47,20 @@ func zumbispawn():
 	pass
 
 func wave_attributes():
-	totalZombie = totalZombie + 2
-	speedZumbi = speedZumbi + 10
+	totalZombie = totalZombie + waveNumber/2
+	speedZumbi = speedZumbi + waveNumber*2
 	zombiesAlive = totalZombie
 	attempts = 3
 	spawnedZombies = 0
 	
 	if waveNumber <= 5:
-		$ZumbiTimer.wait_time = 6
+		$ZumbiTimer.wait_time = 13
 	if waveNumber >= 5 and waveNumber <= 10:
-		$ZumbiTimer.wait_time = 5
+		$ZumbiTimer.wait_time = 11
 	if waveNumber >= 10 and waveNumber <= 15:
-		$ZumbiTimer.wait_time = 4
+		$ZumbiTimer.wait_time = 10
 	if waveNumber >= 15 and waveNumber <= 20:
-		$ZumbiTimer.wait_time = 3
+		$ZumbiTimer.wait_time = 8
 	pass
 
 func zumbi_death():
@@ -93,10 +93,10 @@ func game_over():
 func win_game():
 	if zombiesAlive == 0:
 		$Player.move_and_slide($Position2D.position - $Player.position)
-	if $Player.position == $Position2D.position - $Player.position:
-		waveNumber += 1
-		emit_signal("passarWave")
-		#change_scene("nome da cena")
+		if $Player.position >= Vector2(590.906, 260.415):
+			waveNumber += 1
+			emit_signal("passarWave")
+			queue_free()
 	pass
 
 func show_remaining():

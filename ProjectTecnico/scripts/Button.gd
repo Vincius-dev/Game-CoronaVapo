@@ -25,6 +25,6 @@ func _on_Start_pressed():
 func _on_AnimatedSprite_frame_changed():
 	frame += 1
 	if frame == 4:
-		get_tree().change_scene("res://scenes/HistoryScene.tscn")
+		get_tree().change_scene("res://scenes/Main.tscn")
 		
 	pass 
