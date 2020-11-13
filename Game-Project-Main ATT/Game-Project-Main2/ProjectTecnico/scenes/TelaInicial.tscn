@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/img/Start.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Button.gd" type="Script" id=2]
+
+[node name="TelaInicial" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 354.978
+margin_top = 422.903
+margin_right = 674.978
+margin_bottom = 536.903
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Sprite" parent="Button"]
+position = Vector2( 179.075, 109.541 )
+texture = ExtResource( 1 )
+[connection signal="pressed" from="Button" to="Button" method="_on_Start_pressed"]
