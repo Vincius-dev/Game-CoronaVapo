@@ -6,13 +6,13 @@
 [ext_resource path="res://sprites/Zumbi/zombieBoss3.png" type="Texture" id=4]
 [ext_resource path="res://scripts/ZumbieBoss.gd" type="Script" id=5]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 41.6217
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.2293
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 33.3201
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ) ],
 "loop": true,
@@ -21,10 +21,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 37.2096
+radius = 32.5488
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 35.6106, 101.523 )
+extents = Vector2( 44.7486, 97.6773 )
 
 [node name="ZumbieBoss" type="KinematicBody2D" groups=[
 "inimigos",
@@ -32,19 +32,18 @@ extents = Vector2( 35.6106, 101.523 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( -18.8328, -10.5934 )
-shape = SubResource( 2 )
+position = Vector2( -24.6183, -0.468766 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -23.541, -61.2065 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -12.9475, 2.35413 )
 scale = Vector2( 1.6, 1.6 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "BOSS"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -54,6 +53,6 @@ shape = SubResource( 4 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -27.0721, -3.53116 )
+position = Vector2( -24.1794, -2.08478 )
 shape = SubResource( 5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

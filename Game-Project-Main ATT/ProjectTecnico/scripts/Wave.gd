@@ -1,7 +1,7 @@
 extends Node
 export (PackedScene) var Zumbi
 export (PackedScene) var zumbieboss
-var waveNumber = 5
+var waveNumber = 1
 var totalZombie = 6
 var spawnedZombies = 0
 var zombiesAlive = totalZombie

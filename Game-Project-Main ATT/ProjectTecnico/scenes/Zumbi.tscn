@@ -6,13 +6,13 @@
 [ext_resource path="res://sprites/Zumbi/zombie_do_baile1.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Zumbi.gd" type="Script" id=11]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=1]
 radius = 8.00314
 
-[sub_resource type="CircleShape2D" id=7]
-radius = 9.21352
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.30165
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
@@ -20,11 +20,11 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 9.68847
+[sub_resource type="CircleShape2D" id=4]
+radius = 8.5028
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 12.1607, 26.1275 )
+extents = Vector2( 9.42244, 25.0818 )
 
 [node name="Zumbi" type="KinematicBody2D" groups=[
 "inimigos",
@@ -33,28 +33,27 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -11.0049, -5.9486 )
-shape = SubResource( 8 )
+position = Vector2( -11.2925, -6.52387 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -10.7075, 7.73318 )
-shape = SubResource( 7 )
+position = Vector2( -11.2828, 7.73318 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -6.72717, 35.5279 )
 scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 1 )
-frame = 1
+frames = SubResource( 3 )
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2( -10.8942, 24.2371 )
-shape = SubResource( 6 )
+position = Vector2( -11.1818, 24.2371 )
+shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 10.7075, -0.297432 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -21.4085, 11.873 )
+position = Vector2( -21.6961, 11.873 )
 shape = SubResource( 5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
