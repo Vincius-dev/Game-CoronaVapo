@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/TelaInicial2.ogg-2249985e10c3379d4a9591c877563d6a.oggstr"
+
+[deps]
+
+source_file="res://assets/Musicas/TelaInicial2.ogg"
+dest_files=[ "res://.import/TelaInicial2.ogg-2249985e10c3379d4a9591c877563d6a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

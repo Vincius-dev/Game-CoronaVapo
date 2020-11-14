@@ -1,0 +1,177 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Zumbi.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GunsBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Wave.gd" type="Script" id=4]
+[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/Life.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/img/Fundo.png" type="Texture" id=8]
+[ext_resource path="res://scenes/scientist_Dialogue.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ZumbieBoss.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Musicas/Kubbi-Digestive-biscuit.ogg" type="AudioStream" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 514.652, 15.2683 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -15.7095, -65.3748 )
+b = Vector2( -13.5579, 533.376 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 781.267, 243.834 )
+b = Vector2( -257.087, 243.009 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( -0.136322, 552.361 )
+b = Vector2( -1.67471, -70.4236 )
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 3.12787, 261.435, 0, 0, 0, 0, 1.15942, 317.314, 0, 0, 0, 0, 1.15942, 552.255 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1022.81, 266.435, 0, 0, 0, 0, 1022.81, 552.255 )
+}
+
+[sub_resource type="DynamicFont" id=7]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 6 )
+
+[node name="Wave" type="Node"]
+script = ExtResource( 4 )
+Zumbi = ExtResource( 2 )
+zumbieboss = ExtResource( 10 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = -2147483647
+margin_left = -0.0045166
+margin_top = 4.0
+margin_right = 1022.0
+margin_bottom = 605.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -4.00452, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 509.529, 198.876 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -4.00452, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 4
+position = Vector2( 1039.32, 72.7693 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 248.111, 360.9 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 3.03488, 64.9083 )
+shape = SubResource( 4 )
+
+[node name="Life" parent="." instance=ExtResource( 7 )]
+position = Vector2( -4.00452, 3.05176e-05 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+light_mask = -2147483647
+position = Vector2( 488.742, 420.977 )
+
+[node name="GunsBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 47.3436, 547.668 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="ZumbiTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -4.00452, 0 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 3.12787, 261.435 )
+rotation = 1.60601
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2( -20.0687, 7.72552 )
+curve = SubResource( 6 )
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 1022.81, 266.435 )
+rotation = 1.57078
+
+[node name="scientist_Dialogue" parent="." instance=ExtResource( 9 )]
+pause_mode = 2
+margin_left = 3.59204
+margin_top = 4.38257
+margin_right = 14.592
+margin_bottom = -445.617
+
+[node name="PauseScreen" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_left = -0.79364
+margin_top = 3.37543
+margin_right = -0.79364
+margin_bottom = 3.37543
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 605.551, 256.761 )
+
+[node name="HUDWave" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="HUDWave"]
+margin_left = 804.961
+margin_top = 12.6723
+margin_right = 977.961
+margin_bottom = 65.6723
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Zombies Remaining:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveLabel" type="Label" parent="HUDWave"]
+margin_left = 662.314
+margin_top = 17.0818
+margin_right = 789.314
+margin_bottom = 61.0818
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Wave:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 600, 0 )
+stream = ExtResource( 11 )
+volume_db = -20.193
+[connection signal="pause" from="." to="PauseScreen" method="death_mensage"]
+[connection signal="resetLifes" from="." to="Life" method="_on_Wave_resetLifes"]
+[connection signal="PlayerDead" from="Player" to="." method="player_death"]
+[connection signal="tomaDano" from="Player" to="Life" method="_on_Player_life_change"]
+[connection signal="tomaDanoBoss" from="Player" to="Life" method="player_life_change_boss"]
+[connection signal="timeout" from="ZumbiTimer" to="." method="zumbispawn"]
