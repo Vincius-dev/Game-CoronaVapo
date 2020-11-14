@@ -24,6 +24,7 @@ func _ready():
 	pass
 
 func wave_start():
+	$Musica.play()
 	$ZumbiTimer.start()
 	$Player.position = Vector2(487.419,295.59)
 	wave_attributes()
@@ -121,6 +122,7 @@ func zumbi_death():
 	pass
 
 func player_death():
+	$Musica.stop()
 	$scientist_Dialogue.visible = false
 	emit_signal("pause")
 	get_tree().call_group("inimigos","queue_free")
@@ -130,6 +132,7 @@ func player_death():
 
 func restart_wave():
 	zombiesAlive = totalZombie
+	$Musica.play()
 	$Player.vida = 4
 	$Player.position = Vector2(487.419,295.59)
 	$scientist_Dialogue.visible = true

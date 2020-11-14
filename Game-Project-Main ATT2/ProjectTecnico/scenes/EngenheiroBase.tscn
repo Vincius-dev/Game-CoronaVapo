@@ -198,4 +198,7 @@ custom_fonts/font = SubResource( 5 )
 text = "Aperte E para iniciar a Wave"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

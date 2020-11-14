@@ -15,7 +15,8 @@ func _ready():
 func passar_wave():
 	var base1 = base0.instance()
 	add_child(base1)
-	base1.numberwave = numberWave 
+	base1.numberwave = numberWave
+	$Musica.play() 
 	base1.connect("sairBase",self,"sair_base")
 	base1.connect("TrocarTelaBase", self, "trocar_tela_engenheiro")
 	pass
@@ -33,6 +34,7 @@ func trocar_tela_cientista():
 	pass
 
 func sair_base():
+	$Musica.stop()
 	numberWave += 1
 	var wave2 = wave0.instance()
 	wave2.waveNumber = numberWave

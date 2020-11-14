@@ -24,7 +24,6 @@ func dialogo_engenheiro():
 		var dialogo1 = dialogo0.instance()
 		add_child(dialogo1) 
 		dialogo1.nameText = "falaEngenheiro2"
-	
 	if numberwave == 5:
 		var dialogo1 = dialogo0.instance()
 		add_child(dialogo1) 
