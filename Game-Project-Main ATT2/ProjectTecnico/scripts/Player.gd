@@ -97,6 +97,7 @@ func shooting():
 				ShotG1.direcao = 1
 				get_tree().call_group("position","changePositionRight")
 			get_node("../").add_child(ShotG1)
+			$Shot_Glock.play()
 			shootingV = true
 			ShootingON = false
 			time = 0
@@ -112,6 +113,7 @@ func shooting():
 				ShotA1.direcao = 1
 				get_tree().call_group("position","changePositionRight")
 			get_node("../").add_child(ShotA1)
+			$Shot_AK.play()
 			shootingV = true
 			ShootingON = false
 			time = 0
@@ -126,6 +128,7 @@ func shooting():
 				ShotS1.direcao = 1
 				get_tree().call_group("position","changePositionRight")
 			get_node("../").add_child(ShotS1)
+			$Shot_Shotgun.play()
 			shootingV = true
 			ShootingON = false
 			time = 0
@@ -145,6 +148,7 @@ func ShotCadence():
 
 func dano():
 	vida -= 1
+	$Damage.play()
 	emit_signal("tomaDano")
 	if vida == 0:
 		emit_signal("PlayerDead")
@@ -152,6 +156,7 @@ func dano():
 
 func danoboss():
 	vida -= 2
+	$Damage.play()
 	emit_signal("tomaDanoBoss")
 	if vida == 0:
 		emit_signal("PlayerDead")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/Personagem/Char_Idle/Main_Idle.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun3.png" type="Texture" id=13]
 [ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun2.png" type="Texture" id=14]
 [ext_resource path="res://sprites/Personagem/Shotgun_Char/shotgun1.png" type="Texture" id=15]
+[ext_resource path="res://assets/Musicas/Effects/Shot_Glock.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/Musicas/Effects/Shot__shotgun.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/Musicas/Effects/Shot_AK.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/Musicas/Effects/damage.wav" type="AudioStream" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,14 +32,14 @@ animations = [ {
 "name": "Run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "AK_Shot",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "AK_Shot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 10 ) ],
@@ -69,3 +73,18 @@ script = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = -2147483647
 shape = SubResource( 2 )
+
+[node name="Shot_Shotgun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+volume_db = -30.0
+
+[node name="Shot_AK" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+volume_db = -30.0
+
+[node name="Shot_Glock" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+volume_db = -30.0
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )

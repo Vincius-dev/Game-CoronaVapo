@@ -13,6 +13,7 @@ func _ready():
 	pass
 
 func passar_wave():
+	$Door.play()
 	var base1 = base0.instance()
 	add_child(base1)
 	base1.numberwave = numberWave
@@ -34,6 +35,7 @@ func trocar_tela_cientista():
 	pass
 
 func sair_base():
+	$Door.play()
 	$Musica.stop()
 	numberWave += 1
 	var wave2 = wave0.instance()

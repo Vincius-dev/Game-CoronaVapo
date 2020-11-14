@@ -31,7 +31,6 @@ func wave_start():
 	pass
 
 func zumbispawn():
-	print(spawnedZombies, 1)
 	if spawnedZombies + 1 == totalZombie and ZumbieBossOn == true:
 		$Path2D2/PathFollow2D2.offset = randi()
 		var zumbieboss1 = zumbieboss.instance()
@@ -49,7 +48,6 @@ func zumbispawn():
 		zumbi1.position = $Path2D/PathFollow2D.position
 		zumbi1.connect("zumbiDeath", self, "zumbi_death")
 		zumbi1.speed = speedZumbi
-		print(spawnedZombies)
 		
 		if spawnedZombies + 1 == totalZombie and ZumbieBossOn == true:
 			$Path2D2/PathFollow2D2.offset = randi()
@@ -68,7 +66,6 @@ func zumbispawn():
 			zumbi1.position = $Path2D2/PathFollow2D2.position
 			zumbi1.connect("zumbiDeath", self, "zumbi_death")
 			zumbi1.speed = speedZumbi
-			print(spawnedZombies)
 	pass
 
 func wave_attributes():

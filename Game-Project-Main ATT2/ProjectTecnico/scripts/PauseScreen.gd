@@ -26,6 +26,7 @@ func _process(delta):
 
 func death_mensage():
 	get_tree().paused = !get_tree().paused
+	$Death.play()
 	$Timer.start()
 	mortes += 1
 	pass

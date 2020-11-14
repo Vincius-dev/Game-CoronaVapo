@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/PauseScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/Musicas/Effects/death-pain.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -84,4 +85,8 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="time"]
