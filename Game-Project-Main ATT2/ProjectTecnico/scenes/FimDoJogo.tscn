@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="FimDoJogo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.33484
+margin_right = 1030.33
+margin_bottom = 603.0
+color = Color( 0.184314, 0.172549, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1.33484
+margin_top = -183.328
+margin_right = 1.33484
+margin_bottom = -102.328
+custom_fonts/font = SubResource( 1 )
+text = "A Humanidade Foi Salva"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 28.0316
+margin_top = 197.556
+margin_right = 993.032
+margin_bottom = 467.556
+custom_fonts/font = SubResource( 2 )
+text = "
+Graças aos seus esforços a cura foi concluída. E a humanidade foi reestabelecida, porém não se sabe quanto tempo levará para chegar aos seus estados anteriores. Apesar de tudo, foi notado que nesse período a natureza cresceu em muitas partes do mundo, e muitos problemas ambientais diminuíram. "
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 304.343
+margin_top = 513.913
+margin_right = 728.343
+margin_bottom = 552.913
+custom_fonts/font = SubResource( 3 )
+text = "Obrigado Por Ter Jogado!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

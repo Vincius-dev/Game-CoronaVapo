@@ -7,7 +7,7 @@ var shootingV = false
 var ShootingON = true
 var walkON = true
 var time = 0
-var vida = 4
+var vida = 200
 var gunlockAK =  false
 var gunlockSHOT = false
 

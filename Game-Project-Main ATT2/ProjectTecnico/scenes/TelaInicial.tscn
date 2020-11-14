@@ -195,5 +195,7 @@ texture = ExtResource( 17 )
 position = Vector2( 548.799, 55.0253 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 18 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 [connection signal="pressed" from="Button" to="Button" method="_on_Start_pressed"]
 [connection signal="frame_changed" from="Button/AnimatedSprite" to="Button" method="_on_AnimatedSprite_frame_changed"]

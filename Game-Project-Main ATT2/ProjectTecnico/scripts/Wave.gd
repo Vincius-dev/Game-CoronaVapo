@@ -30,6 +30,7 @@ func wave_start():
 	pass
 
 func zumbispawn():
+	print(spawnedZombies, 1)
 	if spawnedZombies + 1 == totalZombie and ZumbieBossOn == true:
 		$Path2D2/PathFollow2D2.offset = randi()
 		var zumbieboss1 = zumbieboss.instance()
@@ -38,6 +39,7 @@ func zumbispawn():
 		zumbieboss1.position = $Path2D2/PathFollow2D2.position
 		zumbieboss1.connect("zumbiDeath", self, "zumbi_death")
 		zumbieboss1.speed = speedZumbi
+	
 	if spawnedZombies < totalZombie:
 		$Path2D/PathFollow2D.offset = randi()
 		var zumbi1 = Zumbi.instance()
@@ -46,6 +48,17 @@ func zumbispawn():
 		zumbi1.position = $Path2D/PathFollow2D.position
 		zumbi1.connect("zumbiDeath", self, "zumbi_death")
 		zumbi1.speed = speedZumbi
+		print(spawnedZombies)
+		
+		if spawnedZombies + 1 == totalZombie and ZumbieBossOn == true:
+			$Path2D2/PathFollow2D2.offset = randi()
+			var zumbieboss1 = zumbieboss.instance()
+			add_child(zumbieboss1)
+			spawnedZombies += 1
+			zumbieboss1.position = $Path2D2/PathFollow2D2.position
+			zumbieboss1.connect("zumbiDeath", self, "zumbi_death")
+			zumbieboss1.speed = speedZumbi
+
 		if totalZombie > spawnedZombies: 
 			$Path2D2/PathFollow2D2.offset = randi()
 			zumbi1 = Zumbi.instance()
@@ -54,6 +67,7 @@ func zumbispawn():
 			zumbi1.position = $Path2D2/PathFollow2D2.position
 			zumbi1.connect("zumbiDeath", self, "zumbi_death")
 			zumbi1.speed = speedZumbi
+			print(spawnedZombies)
 	pass
 
 func wave_attributes():
@@ -71,10 +85,16 @@ func wave_attributes():
 		$ZumbiTimer.wait_time = 11
 	if waveNumber >= 10 and waveNumber <= 15:
 		$Player.gunlockAK = true
+		$Player.gunlockSHOT = true
+		$GunsBar/Shotgun_Bar1.show()
 		$GunsBar/AK_Bar1.show()
 		$ZumbiTimer.wait_time = 10
 	if waveNumber >=15 and waveNumber <= 20:
 		$ZumbiTimer.wait_time = 8
+		$Player.gunlockAK = true
+		$Player.gunlockSHOT = true
+		$GunsBar/Shotgun_Bar1.show()
+		$GunsBar/AK_Bar1.show()
 
 
 	if waveNumber == 5:
@@ -128,6 +148,8 @@ func win_game():
 		$Player.move_and_slide($Position2D.position - $Player.position)
 		if $Player.position >= Vector2(590.906, 260.415):
 			waveNumber += 1
+			if waveNumber == 20:
+				get_tree().change_scene("res://scenes/HistoriaFimJogo.tscn")
 			emit_signal("passarWave")
 			queue_free()
 	pass
