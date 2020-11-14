@@ -15,13 +15,17 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ProjectTecnico"
-run/main_scene="res://scenes/Wave.tscn"
+config/name="Corona-Vapo"
+run/main_scene="res://scenes/TelaInicial.tscn"
+boot_splash/image="res://assets/img/Fundo.png"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/resizable=false
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 

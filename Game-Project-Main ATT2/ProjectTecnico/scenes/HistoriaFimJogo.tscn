@@ -29,4 +29,5 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="Musica" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 550, 0 )
 stream = ExtResource( 4 )

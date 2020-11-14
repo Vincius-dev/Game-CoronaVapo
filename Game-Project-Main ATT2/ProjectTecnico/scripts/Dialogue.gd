@@ -40,7 +40,7 @@ func TextList():
 		if numberText == 1:
 			$Label.text = "Você se saiu muito bem, finalmente consegui finalizar o protótipo da vacina."
 		if numberText == 2:
-			$Label.text = "Parece que a humanidade pode começar a se estabelecer agora, apesar de que será um processo extremamente demorado."
+			$Label.text = "Parece que a humanidade pode começar a se restabelecerr agora, apesar de que será um processo extremamente demorado."
 		if numberText == 3:
 			$Label.text = "Também não sabemos ainda quantos poderão ser salvos. Mas pelo menos temos uma chance de reverter esta situação."
 		if numberText == 4:
@@ -63,7 +63,7 @@ func TextList():
 		if numberText == 1:
 			$Label.text = "É Sempre bom te ver, abençoado combatente!!!"
 		if numberText == 2:
-			$Label.text = "Encontrei alguns estudos por aqui eles podem vir a me ajudar."
+			$Label.text = "Encontrei alguns estudos por aqui, eles podem vir a me ajudar."
 		if numberText == 3:
 			$Label.text = "No momento tenho muito a fazer, por favor não me atrapalhe."
 		if numberText == 4:

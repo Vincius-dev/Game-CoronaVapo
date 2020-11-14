@@ -91,7 +91,7 @@ position = Vector2( -4.00452, 3.05176e-05 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 light_mask = -2147483647
-position = Vector2( 494.688, 385.301 )
+position = Vector2( 488.742, 420.977 )
 
 [node name="GunsBar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 47.3436, 547.668 )
@@ -131,7 +131,7 @@ margin_right = -0.79364
 margin_bottom = 3.37543
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 592.906, 262.415 )
+position = Vector2( 605.551, 256.761 )
 
 [node name="HUDWave" type="Node" parent="."]
 
@@ -166,6 +166,7 @@ __meta__ = {
 }
 
 [node name="Musica" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 600, 0 )
 stream = ExtResource( 11 )
 volume_db = -20.193
 [connection signal="pause" from="." to="PauseScreen" method="death_mensage"]

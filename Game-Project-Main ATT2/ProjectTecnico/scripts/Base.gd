@@ -11,6 +11,7 @@ func _ready():
 	pass
 
 func dialogo_cientista():
+	print("numero da wave é :", numberwave)
 	if numberwave < 5:
 		var dialogo1 = dialogo0.instance()
 		add_child(dialogo1) 

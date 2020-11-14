@@ -146,9 +146,9 @@ func game_over():
 func win_game():
 	if zombiesAlive == 0:
 		$Player.move_and_slide($Position2D.position - $Player.position)
-		if $Player.position >= Vector2(590.906, 260.415):
+		if $Player.position.y <= 260:
 			waveNumber += 1
-			if waveNumber == 20:
+			if waveNumber == 21:
 				get_tree().change_scene("res://scenes/HistoriaFimJogo.tscn")
 			emit_signal("passarWave")
 			queue_free()

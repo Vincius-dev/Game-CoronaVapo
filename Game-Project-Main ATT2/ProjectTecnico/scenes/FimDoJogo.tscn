@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/Musicas/TelaInicial.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/Musicas/TelaInicial3.ogg" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -77,4 +77,6 @@ __meta__ = {
 }
 
 [node name="Musica" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 500, 0 )
 stream = ExtResource( 2 )
+autoplay = true
