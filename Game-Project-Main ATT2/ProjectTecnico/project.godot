@@ -19,6 +19,7 @@ config/name="Corona-Vapo"
 run/main_scene="res://scenes/TelaInicial.tscn"
 boot_splash/image="res://assets/img/Fundo.png"
 config/icon="res://icon.png"
+config/windows_native_icon="res://assets/img/Logo.ico"
 
 [display]
 
