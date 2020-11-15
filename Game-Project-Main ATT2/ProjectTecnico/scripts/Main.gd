@@ -2,7 +2,7 @@ extends Node
 
 var wave0 = load("res://scenes/Wave.tscn")
 var base0 = load("res://scenes/Base.tscn")
-var engenheiro = load("res://scenes/EngenheiroBase.tscn")
+var engenheiro0 = load("res://scenes/EngenheiroBase.tscn")
 var numberWave = 1
 var doorOn = true
 
@@ -27,7 +27,7 @@ func passar_wave():
 	pass
 
 func trocar_tela_engenheiro():
-	var engenheiro1 = engenheiro.instance()
+	var engenheiro1 = engenheiro0.instance()
 	engenheiro1.numberwave = numberWave
 	add_child(engenheiro1)
 	engenheiro1.connect("SairBase",self,"sair_base")

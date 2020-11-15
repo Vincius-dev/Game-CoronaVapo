@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/engenheiroBase.gd" type="Script" id=1]
+[ext_resource path="res://scripts/EngenheiroBase.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/seta_base.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/EngenheiroBackground.png" type="Texture" id=3]
 [ext_resource path="res://sprites/Armas/AK/AK.png" type="Texture" id=4]
