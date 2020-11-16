@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Zumbi.tscn" type="PackedScene" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://scenes/scientist_Dialogue.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/ZumbieBoss.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Musicas/Kubbi-Digestive-biscuit.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/Sprite_Teclas/v2teclas/Z2.png" type="Texture" id=12]
+[ext_resource path="res://assets/Sprite_Teclas/x.png" type="Texture" id=13]
+[ext_resource path="res://assets/Sprite_Teclas/v2teclas/Z4.png" type="Texture" id=14]
+[ext_resource path="res://assets/Sprite_Teclas/v2teclas/Z1.png" type="Texture" id=15]
+[ext_resource path="res://assets/Sprite_Teclas/v2teclas/Z3.png" type="Texture" id=16]
+[ext_resource path="res://assets/Sprite_Teclas/Z.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 514.652, 15.2683 )
@@ -94,7 +100,7 @@ light_mask = -2147483647
 position = Vector2( 488.742, 420.977 )
 
 [node name="GunsBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 47.3436, 547.668 )
+position = Vector2( 445.088, 532.532 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="ZumbiTimer" type="Timer" parent="."]
@@ -115,6 +121,46 @@ curve = SubResource( 6 )
 [node name="PathFollow2D2" type="PathFollow2D" parent="Path2D2"]
 position = Vector2( 1022.81, 266.435 )
 rotation = 1.57078
+
+[node name="Touch_Buttons" type="CanvasLayer" parent="."]
+
+[node name="Gamepad" type="Node2D" parent="Touch_Buttons"]
+
+[node name="Down_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 95.607, 500 )
+scale = Vector2( 3.01682, 2.79819 )
+normal = ExtResource( 16 )
+pressed = ExtResource( 16 )
+
+[node name="Left_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 17.7045, 418.878 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 15 )
+
+[node name="Right_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 169.888, 420 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 12 )
+
+[node name="Top_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 95.333, 350 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 14 )
+
+[node name="X_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 869.795, 464.453 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 13 )
+
+[node name="Switch_Button" type="TouchScreenButton" parent="Touch_Buttons/Gamepad"]
+position = Vector2( 752.049, 465.822 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 18 )
 
 [node name="scientist_Dialogue" parent="." instance=ExtResource( 9 )]
 pause_mode = 2
@@ -175,3 +221,15 @@ volume_db = -20.193
 [connection signal="tomaDano" from="Player" to="Life" method="_on_Player_life_change"]
 [connection signal="tomaDanoBoss" from="Player" to="Life" method="player_life_change_boss"]
 [connection signal="timeout" from="ZumbiTimer" to="." method="zumbispawn"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/Down_Button" to="Player" method="_on_Down_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/Down_Button" to="Player" method="_on_Down_Button_released"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/Left_Button" to="Player" method="_on_Left_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/Left_Button" to="Player" method="_on_Left_Button_released"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/Right_Button" to="Player" method="_on_Right_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/Right_Button" to="Player" method="_on_Right_Button_released"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/Top_Button" to="Player" method="_on_Top_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/Top_Button" to="Player" method="_on_Top_Button_released"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/X_Button" to="Player" method="_on_X_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/X_Button" to="Player" method="_on_X_Button_released"]
+[connection signal="pressed" from="Touch_Buttons/Gamepad/Switch_Button" to="Player" method="_on_Switch_Button_pressed"]
+[connection signal="released" from="Touch_Buttons/Gamepad/Switch_Button" to="Player" method="_on_Switch_Button_released"]

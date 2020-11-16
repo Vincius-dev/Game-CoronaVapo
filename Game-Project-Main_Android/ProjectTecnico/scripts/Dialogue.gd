@@ -3,6 +3,9 @@ extends Control
 var nameText = "null"
 var numberText = 1
 var dialogueEnd = false
+var n = 0
+var skip = false
+var skiplock = true
 
 signal mostrarArma
 signal pararArma
@@ -11,12 +14,27 @@ func _ready():
 	pass 
 
 func _process(delta):
+	print(n)
 	TextList()
 	pass
 
 func TextList():
-	if Input.is_action_just_pressed("nextText"):
-		numberText += 1
+	if skip == true:
+		numberText = numberText + 1
+		if numberText == 2:
+			skip = false
+		if numberText == 3:
+			skip = false
+		if numberText == 4:
+			skip = false
+		if numberText == 5:
+			skip = false
+		if numberText == 6:
+			skip = false
+		if numberText == 7:
+			skip = false
+		if numberText == 8:
+			skip = false
 
 	if nameText == "cientistaHistoria":
 		if numberText == 1:
@@ -142,5 +160,11 @@ func TextList():
 			$Label.text = "Não pensei que você iria durar até aqui, realmente sua ajuda foi necessária nessa missão."
 		if numberText == 2:
 			$Label.text = "Estou começando a ter esperanças, continue nesse ritmo." 
+	pass
 
+func _on_Skip_Button_pressed():
+	skip = true
+	pass 
+func _on_Skip_Button_released():
+	skip = false
 	pass

@@ -29,3 +29,4 @@ func _on_AnimatedSprite_frame_changed():
 		get_tree().change_scene("res://scenes/HistoryScene.tscn")
 		
 	pass 
+

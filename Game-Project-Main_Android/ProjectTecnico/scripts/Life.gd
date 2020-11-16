@@ -35,5 +35,3 @@ func _on_Wave_resetLifes():
 		$VidaInicial.show()
 		$VidaMeio.show()
 	pass 
-
-

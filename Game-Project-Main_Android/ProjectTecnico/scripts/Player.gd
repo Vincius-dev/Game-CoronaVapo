@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const SPEED = 300
 var walk = Vector2()
+var bulletAtual = 1
 var bullet = 1
 var shootingV = false
 var ShootingON = true
@@ -10,6 +11,13 @@ var time = 0
 var vida = 4
 var gunlockAK =  false
 var gunlockSHOT = false
+
+var touchTop = false
+var touchDown = false
+var touchLeft = false
+var touchRight = false
+var touchShot = false
+var touchSwitch = false
 
 var ShotG0 = preload("res://scenes/Bullets/ShotGlock.tscn") 
 var ShotA0 = preload("res://scenes/Bullets/ShotAk.tscn")
@@ -30,22 +38,22 @@ func _physics_process(delta):
 	pass
 
 func _move(delta):
-	if Input.is_action_pressed("shot"):
+	if touchShot == true:
 		walkON = false
 	else:
 		walkON = true
 	
-	if Input.is_action_pressed("up") and walkON == true:
+	if touchTop == true and walkON == true:
 		walk.y = -SPEED
-	elif Input.is_action_pressed("down") and walkON == true:
+	elif touchDown == true and walkON == true:
 		walk.y = SPEED
 	else:
 		walk.y = 0 
-	if Input.is_action_pressed("left") and walkON == true:
+	if touchLeft == true and walkON == true:
 		walk.x = -SPEED
 		$AnimatedSprite.flip_h = true
 		shootingV = false
-	elif Input.is_action_pressed("right") and walkON == true:
+	elif touchRight == true and walkON == true:
 		walk.x = SPEED
 		$AnimatedSprite.flip_h = false
 		shootingV = false
@@ -77,17 +85,19 @@ func animation_shooting():
 	pass
 
 func GunsSwitch():
-	if Input.is_action_just_pressed("Slot1"):
+	if bulletAtual == 4:
+		bulletAtual = 1
+	if bulletAtual == 1:
 		bullet = 1
-	if Input.is_action_just_pressed("Slot3") and gunlockAK == true:
-		bullet = 2
-	if Input.is_action_just_pressed("Slot2") and gunlockSHOT == true:
+	if bulletAtual == 2 and gunlockSHOT == true:
 		bullet = 3
+	if bulletAtual == 3 and gunlockAK == true:
+		bullet = 2
 	pass
 
 func shooting():
 	if ShootingON == true:
-		if Input.is_action_just_pressed("shot") and bullet == 1:
+		if touchShot == true and bullet == 1:
 			var ShotG1 = ShotG0.instance()
 			ShotG1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
 			if $AnimatedSprite.flip_h == true:
@@ -102,7 +112,7 @@ func shooting():
 			ShootingON = false
 			time = 0
 
-		if Input.is_action_just_pressed("shot") and bullet == 2:
+		if touchShot == true and bullet == 2:
 			var ShotA1 = ShotA0.instance()
 			ShotA1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
 			
@@ -118,7 +128,7 @@ func shooting():
 			ShootingON = false
 			time = 0
 
-		if Input.is_action_just_pressed("shot") and bullet == 3:
+		if touchShot == true and bullet == 3:
 			var ShotS1 = ShotS0.instance()
 			ShotS1.set_global_position($AnimatedSprite/BulletStart.get_global_position())
 			if $AnimatedSprite.flip_h == true:
@@ -167,3 +177,45 @@ func visilibility():
 		visible = true
 	pass
 
+func _on_Down_Button_pressed():
+	touchDown = true
+	pass 
+func _on_Down_Button_released():
+	touchDown = false
+	pass 
+
+func _on_Left_Button_pressed():
+	touchLeft = true
+	pass 
+func _on_Left_Button_released():
+	touchLeft = false
+	pass 
+
+func _on_Right_Button_pressed():
+	touchRight = true
+	pass 
+func _on_Right_Button_released():
+	touchRight = false
+	pass
+
+func _on_Top_Button_pressed():
+	touchTop = true
+	pass 
+func _on_Top_Button_released():
+	touchTop = false
+	pass 
+
+func _on_X_Button_pressed():
+	touchShot = true
+	pass 
+func _on_X_Button_released():
+	touchShot = false
+	pass 
+
+func _on_Switch_Button_pressed():
+	bulletAtual += 1
+	pass 
+
+func _on_Switch_Button_released():
+	touchSwitch = false
+	pass 

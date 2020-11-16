@@ -2,6 +2,7 @@ extends Control
 
 var dialogo0 = load("res://scenes/Dialogue.tscn")
 var numberwave = 1
+var exit = false
 
 signal SairBase
 signal TrocarTelaBase
@@ -56,7 +57,7 @@ func dialogo_engenheiro():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("sairbase"):
+	if exit == true:
 		emit_signal("SairBase")
 		queue_free()
 	pass
@@ -83,3 +84,10 @@ func parar_ak():
 	$AnimationAK/Label.hide()
 	$AnimationAK/Sprite.hide()
 	pass
+
+func _on_Exit_Button_pressed():
+	exit = true
+	pass
+func _on_Exit_Button_released():
+	exit = false
+	pass 

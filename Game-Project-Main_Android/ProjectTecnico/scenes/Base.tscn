@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Base.gd" type="Script" id=1]
 [ext_resource path="res://assets/img/CientistaBackground.png" type="Texture" id=2]
 [ext_resource path="res://assets/img/seta_base.png" type="Texture" id=3]
 [ext_resource path="res://assets/Fonts/Orbitron/Orbitron-VariableFont_wght.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/Sprite_Teclas/Z.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -37,29 +38,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-margin_left = 807.208
-margin_top = 155.68
-margin_right = 907.208
-margin_bottom = 190.68
-rect_scale = Vector2( 7, 7 )
-icon = ExtResource( 3 )
-flat = true
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="."]
 margin_left = 17.8964
 margin_top = 19.908
 margin_right = 409.896
 margin_bottom = 52.908
 custom_fonts/font = SubResource( 1 )
-text = "Aperte E para iniciar a Wave"
+text = "Aperte Z para iniciar a Wave"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+[node name="Button2" type="TouchScreenButton" parent="."]
+position = Vector2( 828.397, 154.621 )
+scale = Vector2( 5.8134, 4.92345 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 3 )
+
+[node name="Exit_Button" type="TouchScreenButton" parent="."]
+position = Vector2( 871.938, 456.629 )
+scale = Vector2( 3.16131, 2.99179 )
+normal = ExtResource( 5 )
+[connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Exit_Button" to="." method="_on_Exit_Button_pressed"]
+[connection signal="released" from="Exit_Button" to="." method="_on_Exit_Button_released"]

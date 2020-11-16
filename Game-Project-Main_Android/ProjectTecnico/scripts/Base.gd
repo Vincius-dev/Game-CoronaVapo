@@ -2,6 +2,7 @@ extends Control
 
 var dialogo0 = load("res://scenes/Dialogue.tscn")
 var numberwave = 1
+var exit = false
 
 signal sairBase
 signal TrocarTelaBase
@@ -31,13 +32,19 @@ func dialogo_cientista():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("sairbase"):
+	if exit == true:
 		emit_signal("sairBase")
 		queue_free()
 	pass
 
-
 func _on_Button_pressed():
 	emit_signal("TrocarTelaBase")
 	queue_free()
+	pass 
+
+func _on_Exit_Button_pressed():
+	exit = true
+	pass 
+func _on_Exit_Button_released():
+	exit = false
 	pass 
