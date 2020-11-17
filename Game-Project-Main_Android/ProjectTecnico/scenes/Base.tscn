@@ -58,7 +58,7 @@ normal = ExtResource( 3 )
 pressed = ExtResource( 3 )
 
 [node name="Exit_Button" type="TouchScreenButton" parent="."]
-position = Vector2( 871.938, 456.629 )
+position = Vector2( 11.6534, 153.622 )
 scale = Vector2( 3.16131, 2.99179 )
 normal = ExtResource( 5 )
 [connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
