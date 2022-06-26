@@ -9,4 +9,4 @@ O jogo tem uma proposta de divulgação das medidas corretas de proteção do co
 
 O jogo possui musicas próprias, compostas e tocadas por um dos alunos do grupo, e também possui musicas sem direitos autorias.
 
-É possível jogar o jogo via web no site, no windows, android e ios. 
+É possível jogar o jogo via web no site, no windows, android e MAC.
